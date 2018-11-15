@@ -1,34 +1,34 @@
 #body{
   background: url(aboutus-images/about.png) no-repeat center center fixed;
-  background-size: cover;
+  background-size: 100% 100%;
   height: 100%;
   overflow: hidden;
   font-family: Raleway;
 }
 
 #meet {
-	font-size: 100px;
-	padding-top: 259px;
+	font-size: 5.5vw;
+	padding-top: 12%;
 	color: white;
 	font-family: Raleway Black;
 }
 #meettext {
-	font-size: 25px;
-	padding-top: 0px;
+	font-size: 1vw;
+	padding-top: 0%;
 	color: white;
 	font-family: Raleway Black;
 }
 #bodyrow {
-	padding-top: 85px;
-	font-size: 18px;
-	padding-left: 570px;
+	padding-top: 3.5%;
+	font-size: 1vw;
+	padding-left: 30%;
 	color: white;
 	font-family: Raleway Black;
 }
 #textrow {
-	padding-top: 10px;
-	font-size: 18px;
-	padding-left: 560px;
+	padding-top: 0.5%;
+	font-size: 0.95vw;
+	padding-left: 29%;
 	color: white;
 	font-family: Raleway Black;
 }
