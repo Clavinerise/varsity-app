@@ -114,6 +114,7 @@ def register(request):
 		u_password=request.POST['password']
 		)
 		new.save()
+	return redirect('websites:Homepage')
 	else:
 		return render(request,'websites/signup-screen/signup.html')
 			      
