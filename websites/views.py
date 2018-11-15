@@ -12,7 +12,7 @@ from django.shortcuts import redirect
 from django.db.models.query import EmptyQuerySet
 from django.template.loader import render_to_string
 from .models import user, member, varsity, eventlol
-from django.core.mail import send_mai
+from django.core.mail import send_mail
 
 def usercount():
     no = user.objects.count()
