@@ -105,7 +105,7 @@ def newmember(request):
 def customize(request):
 	return render(request,'websites/customize.html')
 def signup(request):
-	return render(request,'websites/signup-screen')
+	return render(request,'websites/signup-screen/signup.html')
 def register(request):
 	test=user.objects.get(u_username=request.POST['username']
 	if(request.POST['password']==request.POST['cpassword'] and !(test.exists()) ):
@@ -115,7 +115,7 @@ def register(request):
 		)
 		new.save()
 	else:
-		return render(request,'websites/signup-screen')
+		return render(request,'websites/signup-screen/signup.html')
 			      
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
