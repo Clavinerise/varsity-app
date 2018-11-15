@@ -1,0 +1,23 @@
+
+
+#Welcome{
+	color:white;
+	font-family: Raleway;
+}
+
+#logo{
+	padding-top: 130px;
+}
+
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
+
+#body{
+  background: url(login-screen-bg.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  font-family: Raleway;
+}
