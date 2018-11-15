@@ -107,8 +107,8 @@ def customize(request):
 def signup(request):
 	return render(request,'websites/signup-screen/signup.html')
 def register(request):
-	test=user.objects.get(u_username=request.POST['username']
-	if(request.POST['password']==request.POST['cpassword'] and !(test.exists()) ):
+	test=user.objects.get(u_username=request.POST['username'])
+	if request.POST['password']==request.POST['cpassword'] and not test :
 		new=user(
 		u_username=request.POST['username']
 		u_password=request.POST['password']
