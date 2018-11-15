@@ -1,0 +1,31 @@
+#body {
+   background: url("images/home-screen-bg.png") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+
+  font-family: Raleway Black;
+}
+
+#line{
+	border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: white; /* old IE */
+    background-color: white; /* Modern Browsers */
+}
+
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
+
+#mainheader{
+	padding-top:200px;
+	color:white;
+}
+
+#subheader{
+	color:white;
+	padding-bottom:20px;
+}
