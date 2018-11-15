@@ -1,0 +1,25 @@
+#body{
+	font-family: Raleway;
+	background: url(register-screen-bg.png) no-repeat center center fixed;
+  	background-size: cover;
+  	height: 100%;
+  	overflow: hidden;
+}
+#mainheader{
+	padding-top:120px;
+	color:white;
+}
+
+#subheader{
+	color:white;
+	padding-bottom:20px;
+}
+
+
+
+/*https://stackoverflow.com/questions/18036315/centering-bootstrap-input-fields*/
+/*for centering*/
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
