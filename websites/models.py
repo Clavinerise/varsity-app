@@ -33,4 +33,3 @@ class eventlol(models.Model):
 	#e_date=models.DateField(null=True, blank=True)
 	#e_start=models.TimeField(null=True, blank=True)
 	#e_end=models.TimeField(null=True, blank=True)
-	#blahblah testing how to use github
