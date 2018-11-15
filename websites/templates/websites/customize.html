@@ -34,17 +34,17 @@
 				<button c type="submit" name="action" value="adddate">Add Event</button>
 				</form>
 				<form action="{% url 'websites:email' %}" method="post">
-				{% csrf_token %}
-				<div class="input-field">
-		            <span >Topic</span>
-		            <input name="topic" type="text">
-		        </div> 
-				<div class="input-field">
-		            <span >Content</span>
-		            <input name="content" type="text">
-		        </div> 
-				<button c type="submit" name="action" value="email">Send Email to 
-				Subscribers</button>
+					{% csrf_token %}
+					<div class="input-field">
+						<span >Topic</span>
+						<input name="topic" type="text">
+					</div> 
+					<div class="input-field">
+						<span >Content</span>
+						<input name="content" type="text">
+					</div> 
+					<button c type="submit" name="action" value="email">Send Email to 
+					Subscribers</button>
 				</form>
 				
 				
