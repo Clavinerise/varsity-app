@@ -26,19 +26,20 @@ def	eventcount():
 	return no+1
 
 def Homepage(request):
-	vars=request.session['vnum']
-	context = {'vnum': vars}
+	if(request.session.modified == True):
+		vars=request.session['vnum']
+		context = {'vnum': vars}
 	return render(request,'websites/Homepage.html')
 	
 def loginattempt (request):
-	return render(request, 'websites/login.html')
+	return render(request, 'websites/login-screen/login.html')
 	
 def login (request):
 	if (isinstance(request.POST['username'], str) and request.POST['username']!= '' and isinstance(request.POST['password'],str)and request.POST['password']!=''):
 		curuser=user.objects.filter(u_username=request.POST['username']).filter(u_password=request.POST['password'])
 		print(user.objects.none() )
 		if (  len(curuser)==0 ):
-			return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
+			return render(request,'websites/login-screen/login.html', {'error_message': "Invalid Credentials."})
 		else:
 			if(curuser.first().u_varsity==None):
 				return redirect('websites:Homepage')
@@ -46,7 +47,7 @@ def login (request):
 				request.session['vnum']=curuser.first().u_varsity
 				return  redirect('websites:customize')
 	else:
-		return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
+		return render(request,'websites/login-screen/login.html', {'error_message': "Invalid Credentials."})
 		
 def editpage(request):
 	return render(request,'websites/editpage.html')
@@ -107,16 +108,16 @@ def customize(request):
 def signup(request):
 	return render(request,'websites/signup-screen/signup.html')
 def register(request):
-	test=user.objects.get(u_username=request.POST['username'])
-	if request.POST['password']==request.POST['cpassword'] and not test :
+	if request.POST['password']==request.POST['cpassword'] and not user.objects.filter(u_username=request.POST['username']).exists() :
 		new=user(
-		u_username=request.POST['username']
+		u_username=request.POST['username'],
 		u_password=request.POST['password']
 		)
 		new.save()
-	return redirect('websites:Homepage')
+		return redirect('websites:Homepage')
 	else:
 		return render(request,'websites/signup-screen/signup.html')
-			      
+	
+	
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
