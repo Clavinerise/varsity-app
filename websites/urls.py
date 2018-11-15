@@ -31,4 +31,6 @@ urlpatterns = [
 	path('newmember/',views.newmember, name='newmember'),
 	path('newmember/#',views.insertmember, name='insertmember'),
 	path('customize/#',views.customize, name='customize')
+	path('register/', views.signup, name='signup')
+	path('register/#', views.register, name='register')
 ]
