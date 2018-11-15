@@ -8,6 +8,7 @@ class user(models.Model):
 	u_username=models.CharField(max_length=255,primary_key=True)
 	u_password=models.CharField(max_length=255)
 	u_varsity=models.IntegerField(null=True)
+	u_varsitysubscriptions=models.IntegerField(null=True)
 	def __int__(self):
 		return u_username
 	

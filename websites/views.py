@@ -12,6 +12,7 @@ from django.shortcuts import redirect
 from django.db.models.query import EmptyQuerySet
 from django.template.loader import render_to_string
 from .models import user, member, varsity, eventlol
+from django.core.mail import send_mai
 
 def usercount():
     no = user.objects.count()
@@ -117,7 +118,17 @@ def register(request):
 		return redirect('websites:Homepage')
 	else:
 		return render(request,'websites/signup-screen/signup.html')
-	
-	
+def email(request):
+	vars=varsity.objects.get(v_num=request.session['vnum'])
+	lol=users.objects.filter(u_varsitysubscriptions=request.session['vnum'])
+	for i in lol:
+		send_mail(
+			request.POST['topic'],
+			request.POST['content'],
+			vars.v_email,
+			i.u_username,
+			fail_silently=False,
+		)
+	return redirect('websites:Homepage')
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
