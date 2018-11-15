@@ -1,8 +1,10 @@
 
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 	<head>
-		{% load static %}
+		
 		<title>Login</title>
 		<link rel="stylesheet" type="text/css" href="{% static 'websites/login.css' %}">
 		 <!-- Required meta tags -->
@@ -19,7 +21,7 @@
 
 			<!--Logo-->
 			<div id="logo" class="text-center">
-				<img src="images/login-person-running.png" class="rounded" alt="...">
+				<img src="{% static 'websites/login-person-running.png' %}" class="rounded" alt="logo here">
 			</div>
 
 			<!-- Welcome -->
