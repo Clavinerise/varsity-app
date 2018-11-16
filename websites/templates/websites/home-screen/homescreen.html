@@ -26,26 +26,33 @@
 		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    	<ul class="navbar-nav mr-auto">
 		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#" >Home<span class="sr-only">(current)</span></a>
+		        		<a class="nav-link text-white" href="{% url 'websites:Homepage' %}" >Home<span class="sr-only">(current)</span></a>
 		      		</li>
 		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">Calendar<span class="sr-only">(current)</span></a>
+		        		<a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar<span class="sr-only">(current)</span></a>
 		      		</li>
 		      		
 		      		<li class="nav-item dropdown">
-		       			<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
+		       			<a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
 		        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 		         			<a class="dropdown-item" href="#">Action</a>
 		          			<a class="dropdown-item" href="#">Another action</a>
 		          			<div class="dropdown-divider"></div>
 		          			<a class="dropdown-item" href="#">Something else here</a>
 		        		</div>
+										</div>
+				{%for item in vnum %}
+				<div >
+					<a href="{% url 'websites:adddate' %}" >adddate</a>
+				</div>
+				{% endfor %}
+				<div >
 		      		</li>
 		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
+		        		<a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us <span class="sr-only">(current)</span></a>
 		      		</li>
 		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
+		        		<a class="nav-link text-white" href="{% url 'websites:directory' %}">Directory<span class="sr-only">(current)</span></a>
 		      		</li>
 		    	</ul>	
 		  	</div>
@@ -59,14 +66,15 @@
 			<h1 id="mainheader" class="display-1" align="center">Welcome, Wesley.</h1>
 
 			<!-- Sub Header -->
-			<h2 id="subheader" align="center">Start your varisty journey today.</h2>
+			<h2 id="subheader" align="center">Start your varsity journey today.</h2>
 
 
-			<!--Get Started Button-->
-			<div class="col-5 col-centered">
-				<button type="button" class="btn btn-outline-light btn-lg btn-block">Get Started</button>
+			<!--Get Started Button--><form action="{% url 'websites:loginattempt' %}" method="post">
+				{% csrf_token %}
+			<div class="col-5 col-centered" >
+				<button class="btn btn-outline-light btn-lg btn-block"  type =  "submit">Get Started</button>
 			</div>
-
+</form>
 		</div>
 	
 
