@@ -2,11 +2,11 @@
 
 #Welcome{
 	color:white;
-	font-family: Raleway;
+	font-family: Raleway Black;
 }
 
 #logo{
-	padding-top: 130px;
+	padding-top: 140px;
 }
 
 .col-centered{
@@ -15,7 +15,7 @@
 }
 
 #body{
-  background: url(login-screen-bg.png) no-repeat center center fixed;
+  background: url("images/login-screen-bg.png") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;

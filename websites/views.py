@@ -106,8 +106,10 @@ def newmember(request):
 	
 def customize(request):
 	return render(request,'websites/customize.html')
+
 def signup(request):
 	return render(request,'websites/signup-screen/signup.html')
+
 def register(request):
 	if request.POST['password']==request.POST['cpassword'] and not user.objects.filter(u_username=request.POST['username']).exists() :
 		new=user(
@@ -118,6 +120,7 @@ def register(request):
 		return redirect('websites:Homepage')
 	else:
 		return render(request,'websites/signup-screen/signup.html')
+
 def email(request):
 	vars=varsity.objects.get(v_num=request.session['vnum'])
 	lol=users.objects.filter(u_varsitysubscriptions=request.session['vnum'])
@@ -130,5 +133,8 @@ def email(request):
 			fail_silently=False,
 		)
 	return redirect('websites:Homepage')
+
+def aboutus(request):
+    return render(request, 'websites/aboutus-screen/aboutus.html')
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
