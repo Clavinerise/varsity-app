@@ -30,7 +30,7 @@ def Homepage(request):
 	if(request.session.modified == True):
 		vars=request.session['vnum']
 		context = {'vnum': vars}
-	return render(request,'websites/Homepage.html')
+	return render(request,'websites/home-screen/homescreen.html')
 	
 def loginattempt (request):
 	return render(request, 'websites/login-screen/login.html')
