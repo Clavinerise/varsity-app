@@ -136,5 +136,8 @@ def email(request):
 
 def aboutus(request):
     return render(request, 'websites/aboutus-screen/aboutus.html')
+
+def contactus(request):
+    return render(request, 'websites/contactus.html')
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')

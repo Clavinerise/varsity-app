@@ -33,5 +33,6 @@ urlpatterns = [
 	path('customize/#',views.customize, name='customize'),
 	path('register/', views.signup, name='signup'),
 	path('register/#', views.register, name='register'),
-	path('aboutus/', views.aboutus, name='aboutus')
+	path('aboutus/', views.aboutus, name='aboutus'),
+    path('contactus/', views.contactus, name='contactus')
 ]
