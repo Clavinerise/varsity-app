@@ -1,0 +1,42 @@
+
+#body{
+  background: url(home-screen-bg.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+}
+
+#navi{
+	font-weight: 900;
+}
+
+#line{
+	border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: white; /* old IE */
+    background-color: white; /* Modern Browsers */
+}
+
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
+
+#mainheader{
+	padding-top:150px;
+	color:white;
+}
+
+#subheader{
+	color:white;
+	padding-bottom:20px;
+}
+
+#tables{
+	color:white;
+	font-size: 20px;
+	
+}
+
