@@ -1,4 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Black.ttf");
+  font-weight: bolder;
+}
 
 html {
 	background: url(images/directory-bg.png) no-repeat center center fixed;
