@@ -85,12 +85,18 @@
         </thead>
         <!-- The Elements of the Row -->
         <tbody class="ttext">
+		  {% for item in varsities %}
           <tr>
-            <th scope="row"> Basketball </th>
-            <td>ateneobasketball@obf.ateneo.edu</td>
-            <td>09123456789</td>
-            <td>Wesley Ong</td>
+            <th scope="row">{{item.v_name}} </th>
+            <td>{{item.v_email}}</td>
+            <td>{{item.v_contact}}</td>
+			 {% for member in members %}
+				{% if member.m_team == item and member.m_role  == 'manager' %}
+					<td>{{member.m_name}}</td>
+				{% endif %}
+			 {% endfor %}
           </tr>
+		  {% endfor %}
         </tbody>
       </table>
     </div>

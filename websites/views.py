@@ -143,7 +143,9 @@ def contactus(request):
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
 def myPage(request):
-	return render(request, 'websites/myPage.html')
+	if(request.session.modified == True and request.session['username'] != None):
+		user=user.objects.get(u_username=request.session['username'])
+		return render(request, 'websites/myPage.html')
 def changepass(request):
 	if request.POST['password']==request.POST['cpassword'] and request.POST['password'] != None:
 		user=user.objects.get(u_username=request.session['username'])
