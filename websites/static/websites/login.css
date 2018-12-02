@@ -1,8 +1,18 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Regular.ttf");
+}
 
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Black.ttf");
+  font-weight: bolder;
+}
 
 #Welcome{
 	color:white;
-	font-family: Raleway Black;
+  font-family: Raleway;
+  font-weight: bolder;
 }
 
 #logo{
