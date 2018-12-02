@@ -37,7 +37,4 @@ urlpatterns = [
 	path('register/#', views.register, name='register'),
 	path('aboutus/', views.aboutus, name='aboutus'),
     path('contactus/', views.contactus, name='contactus')
-	static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-	static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
-'''url(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT, }),]'''
