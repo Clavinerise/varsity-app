@@ -30,17 +30,17 @@ def Homepage(request):
 	if(request.session.modified == True):
 		vars=request.session['vnum']
 		context = {'vnum': vars}
-	return render(request,'websites/home-screen/homescreen.html')
+	return render(request,'websites/homescreen.html')
 	
 def loginattempt (request):
-	return render(request, 'websites/login-screen/login.html')
+	return render(request, 'websites/login.html')
 	
 def login (request):
 	if (isinstance(request.POST['username'], str) and request.POST['username']!= '' and isinstance(request.POST['password'],str)and request.POST['password']!=''):
 		curuser=user.objects.filter(u_username=request.POST['username']).filter(u_password=request.POST['password'])
 		print(user.objects.none() )
 		if (  len(curuser)==0 ):
-			return render(request,'websites/login-screen/login.html', {'error_message': "Invalid Credentials."})
+			return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
 		else:
 			if(curuser.first().u_varsity==None):
 				return redirect('websites:Homepage')
@@ -48,7 +48,7 @@ def login (request):
 				request.session['vnum']=curuser.first().u_varsity
 				return  redirect('websites:customize')
 	else:
-		return render(request,'websites/login-screen/login.html', {'error_message': "Invalid Credentials."})
+		return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
 		
 def editpage(request):
 	return render(request,'websites/editpage.html')
@@ -108,7 +108,7 @@ def customize(request):
 	return render(request,'websites/customize.html')
 
 def signup(request):
-	return render(request,'websites/signup-screen/signup.html')
+	return render(request,'websites/signup.html')
 
 def register(request):
 	if request.POST['password']==request.POST['cpassword'] and not user.objects.filter(u_username=request.POST['username']).exists() :
@@ -119,7 +119,7 @@ def register(request):
 		new.save()
 		return redirect('websites:Homepage')
 	else:
-		return render(request,'websites/signup-screen/signup.html')
+		return render(request,'websites/signup.html')
 
 def email(request):
 	vars=varsity.objects.get(v_num=request.session['vnum'])
@@ -135,7 +135,7 @@ def email(request):
 	return redirect('websites:Homepage')
 
 def aboutus(request):
-    return render(request, 'websites/aboutus-screen/aboutus.html')
+    return render(request, 'websites/aboutus.html')
 
 def contactus(request):
     return render(request, 'websites/contactus.html')
