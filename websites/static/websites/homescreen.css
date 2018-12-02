@@ -1,10 +1,17 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url("/static/Raleway/Raleway-Black.ttf");
+  }
+
 #body {
-   background: url("images/home-screen-bg.png") no-repeat center center fixed;
+    background: url("images/home-screen-bg.png") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
+  width: 100vw;
   overflow: hidden;
+  color:white;
 
-  font-family: Raleway Black;
+  font-family: Raleway;
 }
 
 #line{
@@ -21,11 +28,19 @@
 }
 
 #mainheader{
-	padding-top:200px;
-	color:white;
+    color:white;
+    align-content:center;
 }
 
 #subheader{
-	color:white;
-	padding-bottom:20px;
+    color:white;
+    padding-bottom: 15pt;
+}
+
+#section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
