@@ -1,3 +1,5 @@
+{% load static %}
+
 @font-face {
     font-family: 'Raleway';
     src: url("/static/Raleway/Raleway.ttf");
@@ -31,11 +33,10 @@ body {
 }
 
 .header {
-	font-family: 'Raleway';
-	font-weight: bolder;
-	font-size: 5.5vw;
+  font-family: 'Raleway Black';
+	font-size: 5.9vw;
 	color: white;
-	padding-top: 25%;
+	padding-top: 20%;
 }
 
 .subheader {
