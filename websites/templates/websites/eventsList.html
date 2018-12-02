@@ -96,78 +96,15 @@
 					    </tr>
 					</thead>
 				  	<tbody>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir, delete the copies na lang below when you start coding-->
-				      		<th scope="row">1</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
-				    	<tr>
-				    		<!--This part is for the rows, just do your coding magic Sir-->
-				      		<th scope="row">2</th> <!--row "header"-->
-				      		<td>Table Tennis</td>
-				      		<td>December 12, 2018</td>
-				      		<td>9:00 AM</td>
-				      		<td>9:00 PM</td>
-				    	</tr>
+						{% for item in dates %}
+							<tr>
+								<!--This part is for the rows, just do your coding magic Sir, delete the copies na lang below when you start coding-->
+								<td>{{item.e_team.v_name}}</td>
+								<td>{{item.e_date}}</td>
+								<td>{{item.e_start}}</td>
+								<td>{{item.e_end}}</td>
+							</tr>
+						{% endfor %}
 				  </tbody>
 				</table>
 

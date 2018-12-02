@@ -76,7 +76,7 @@ def directory (request):
 def events (request):
 	dates = eventlol.objects.all()
 	context = {'dates': dates}
-	return render(request, 'websites/events.html', context)
+	return render(request, 'websites/eventsList.html', context)
 
 def adddate(request):
 	return render(request,'websites/adddate.html')

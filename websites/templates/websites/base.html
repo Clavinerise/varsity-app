@@ -79,7 +79,7 @@
                     <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
                             <ul class="nav navbar-nav">
                                 {% block nav_home %}<a class="nav-link text-white" href="{% url 'websites:Homepage' %}">Home</a>{% endblock %}
-                                {% block nav_calendar %}<a class="nav-link text-white" href="#">Calendar</a>{% endblock %}
+                                {% block nav_calendar %}<a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar</a>{% endblock %}
                                 {% block nav_directory %}<a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" d="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>{% endblock %} 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">Action</a>
