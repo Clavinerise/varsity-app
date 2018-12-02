@@ -17,6 +17,7 @@ class varsity(models.Model):
 	v_name=models.CharField(max_length=255)
 	v_email=models.CharField(max_length=255,null=True)
 	v_contact=models.CharField(max_length=255,null=True)
+	v_file=models.FileField(blank=True, null=True, upload_to="files/%v_num")
 	def __int__(self):
 		return v_num
 	
