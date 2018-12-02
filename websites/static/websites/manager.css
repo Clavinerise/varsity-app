@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Black.ttf");
+  font-weight: bolder;
+}
+
+html {
+	background: url(manager-bg.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	background-color: transparent;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.header {
+	padding-top: 16%;
+	margin-bottom: -2.5%;
+	font-family: 'Raleway Black';
+	font-size: 7.1vw;
+	color: white;
+}
+
+.subheader {
+	font-family: 'Raleway Black';
+	font-size: 1.8vw;
+	color: white;
+}
+
+.theader {
+	font-family: 'Raleway Black';
+	font-size: 3.1vw;
+	color: white;
+}
+
+.sclass {
+	font-size: 0.8vw !important;
+}
+
+.ttext {
+	font-family: 'Raleway';
+	font-size: 1vw;
+	color: white;
+}
+
+#appSummary{
+    justify-content:center;
+}
