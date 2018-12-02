@@ -10,7 +10,7 @@
 }
 
 html {
-	background: url(images/directory-bg.png) no-repeat center center fixed;
+	background: url(images/manager-bg.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -24,7 +24,7 @@ body {
 }
 
 .header {
-	padding-top: 12%;
+	padding-top: 16%;
 	margin-bottom: -2.5%;
 	font-family: 'Raleway Black';
 	font-size: 7.1vw;
@@ -32,24 +32,24 @@ body {
 }
 
 .subheader {
-	font-family: 'Raleway';
+	font-family: 'Raleway Black';
 	font-size: 1.8vw;
 	color: white;
 }
 
-.t {
-	margin-top: 4%;
-}
-
 .theader {
 	font-family: 'Raleway Black';
-	font-size: 1.7vw;
+	font-size: 3.1vw;
 	color: white;
+}
+
+.sclass {
+	font-size: 0.8vw !important;
 }
 
 .ttext {
 	font-family: 'Raleway';
-	font-size: 1.1vw;
+	font-size: 1vw;
 	color: white;
 }
 
