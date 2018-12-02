@@ -120,7 +120,7 @@ def register(request):
 		return redirect('websites:Homepage')
 	else:
 		return render(request,'websites/signup.html')
-
+'''
 def email(request):
 	vars=varsity.objects.get(v_num=request.session['vnum'])
 	lol=users.objects.filter(u_varsitysubscriptions=request.session['vnum'])
@@ -133,7 +133,7 @@ def email(request):
 			fail_silently=False,
 		)
 	return redirect('websites:Homepage')
-
+'''
 def aboutus(request):
     return render(request, 'websites/aboutus.html')
 
@@ -148,8 +148,8 @@ def send_email(request):
 		subject=request.POST['subject']
 		message=request.POST['content']
 		curuser=user.objects.filter(u_varsitysubscriptions=request.session['vnum'])
-		for object in curuser:
-			send_mail(subject, message, vars.v_email, object.u_username)
+	#	for object in curuser:
+	#		send_mail(subject, message, vars.v_email, [object.u_username])
 			
 		return redirect('websites:customize')
 	else:
