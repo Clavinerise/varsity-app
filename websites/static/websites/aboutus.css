@@ -33,14 +33,14 @@ body {
 }
 
 .header {
-  font-family: 'Raleway Black';
+  font-family: 'Raleway Black', sans-serif !important;
 	font-size: 5.9vw;
 	color: white;
 	padding-top: 20%;
 }
 
 .subheader {
-	font-family: 'Raleway' !important;
+	font-family: 'Raleway', sans-serif !important;
 	font-size: 1.5vw;
 	color: white;
 }
@@ -51,7 +51,7 @@ body {
 }
 
 .img {
-	font-family: 'Raleway' sans-serif !important;
+	font-family: 'Raleway', sans-serif !important;
 	color: white;
 	padding-top: 2%;
 }
