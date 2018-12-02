@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+{% load static %}
+
+html {
+	background: url({% 'static' images/directory.png %}) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	background-color: transparent;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.header {
+	padding-top: 12%;
+	margin-bottom: -2.5%;
+	font-family: 'Raleway Black';
+	font-size: 7.1vw;
+	color: white;
+}
+
+.subheader {
+	font-family: 'Raleway';
+	font-size: 1.8vw;
+	color: white;
+}
+
+.t {
+	margin-top: 4%;
+}
+
+.theader {
+	font-family: 'Raleway Black';
+	font-size: 1.7vw;
+	color: white;
+}
+
+.ttext {
+	font-family: 'Raleway';
+	font-size: 1.1vw;
+	color: white;
+}
+
+#appSummary{
+    justify-content:center;
+}
