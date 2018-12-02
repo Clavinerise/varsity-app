@@ -1,6 +1,6 @@
 
 #body{
-  background: url(home-screen-bg.png) no-repeat center center fixed;
+  background: url(images/mypage.png) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -37,6 +37,5 @@
 #tables{
 	color:white;
 	font-size: 20px;
-	
-}
 
+}

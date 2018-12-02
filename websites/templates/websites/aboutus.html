@@ -11,60 +11,92 @@
     <link rel="stylesheet" type="text/css" href="{% static 'websites/aboutus.css' %}">
   </head>
   <body id="body">
-
     <!--Background Image-->
 		<body background="images/about.png">
-    <!-- Navigation Bar -->
-    <div class="container h-100">
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark d-flex">
-      <!--Collapsing navbar-->
-      <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!--Search bar and button-->
-        <form class="form-inline my-2 my-lg-0 ">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary-light my-2 my-sm-0" type="submit" >Search</button>
-          </form>
-          <!--Navbar stuff-->
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="{% url 'websites:Homepage' %}" >Home<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar<span class="sr-only">(current)</span></a>
-              </li>
-              <!--Drop down part of the navbar-->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <!--About Us-->
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
-              </li>
-              <!--Contact Us-->
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
-              </li>
-              <!--My Page-->
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="#">My Page<span class="sr-only">(current)</span></a>
-              </li>
-              <!--Logout Button-->
-              <li class="nav-item active">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
-              </li>
-          </ul>
-        </div>
-    </nav>
-    </div>
+      <!--Navigation bar-->
+  		<div class="d-flex justify-content-end">
+              <nav class="navbar navbar-expand-lg navbar-light bg-transparent d-flex">
+
+                  <!--Collapsing navbar-->
+                  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                      <!-- Search bar -->
+                      <form class="form-inline my-2 my-lg-0">
+                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-secondary-light my-2 my-sm-0" type="submit" >Search</button>
+                      </form>
+
+                      <!--
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                  <a class="nav-link text-white" href="{% url 'websites:Homepage' %}" >Home<span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item active">
+                                  <a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar<span class="sr-only">(current)</span></a>
+                              </li>
+
+                              <li class="nav-item active">
+                                  <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
+                              </li>
+
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="#">Action</a>
+                                      <a class="dropdown-item" href="#">Another action</a>
+                                      <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="#">Something else here</a>
+                                  </div>
+                                                  </div>
+                          {%for item in vnum %}
+                          <div >
+                              <a href="{% url 'websites:adddate' %}" >adddate</a>
+                          </div>
+                          {% endfor %}
+                          <div >
+                              </li>
+                              <li class="nav-item active">
+                                  <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us <span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item active">
+                                  <a class="nav-link text-white" href="{% url 'websites:directory' %}">Directory<span class="sr-only">(current)</span></a>
+                              </li>
+                          </ul>
+                          -->
+
+                      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+                              <ul class="nav navbar-nav">
+                                  {% block nav_home %}<a class="nav-link text-white" href="{% url 'websites:Homepage' %}">Home</a>{% endblock %}
+                                  {% block nav_calendar %}<a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar</a>{% endblock %}
+                                  {% block nav_directory %}<a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" d="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>{% endblock %}
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="#">Action</a>
+                                      <a class="dropdown-item" href="#">Another action</a>
+                                      <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="#">Something else here</a>
+                                  </div>
+                                  {%for item in vnum %}
+                                      <div >
+                                          <a href="{% url 'websites:adddate' %}" >adddate</a>
+                                      </div>
+                                  {% endfor %}
+                                  {% block nav_contactus %}<a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us</a>{% endblock %}
+                                  {% block nav_aboutus %}<a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us</a>{% endblock %}
+  																{% block nav_myPage %}<a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page</a>{% endblock %}
+                                  <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
+                              </ul>
+                      <!-- </div> -->
+                  </div>
+              </nav>
+          </div>
+
+          {% block content %}
+          {% endblock %}
     <!-- Container which contains the HTML/CSS -->
     <div class="container h-100">
       <!-- Team Description -->
