@@ -141,3 +141,18 @@ def contactus(request):
     return render(request, 'websites/contactus.html')
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
+
+def send_email(request):
+	vars=varsity.objects.get(v_num=request.session['vnum'])
+	if isinstance(request.POST['subject'], str) and request.POST['subject']!= '' and isinstance(request.POST['content'],str)and request.POST['content']!='' and vars.v_email != None:
+		subject=request.POST['subject']
+		message=request.POST['content']
+		curuser=user.objects.filter(u_varsitysubscriptions=request.session['vnum'])
+		for object in curuser:
+			send_mail(subject, message, vars.v_email, object.u_username)
+			
+		return redirect('websites:customize')
+	else:
+        # In reality we'd use a form class
+        # to get proper validation errors.
+		return redirect('websites:Homepage')
