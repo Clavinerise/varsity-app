@@ -6,6 +6,8 @@ from django.utils import timezone
 # Create your models here.
 class user(models.Model):
 	u_username=models.CharField(max_length=255,primary_key=True)
+	u_name=models.CharField(max_length=255,null=True)
+	u_contact=models.CharField(max_length=255,null=True)
 	u_password=models.CharField(max_length=255)
 	u_varsity=models.IntegerField(null=True)
 	u_varsitysubscriptions=models.IntegerField(null=True)
