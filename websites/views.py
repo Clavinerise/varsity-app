@@ -27,7 +27,7 @@ def	eventcount():
 	return no+1
 
 def Homepage(request):
-	if(request.session.modified == True):
+	if(request.session.modified == True and request.session['username'] != None):
 		vars=request.session['vnum']
 		context = {'vnum': vars}
 	return render(request,'websites/homescreen.html')
@@ -42,6 +42,7 @@ def login (request):
 		if (  len(curuser)==0 ):
 			return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
 		else:
+			request.session['username']=request.POST['username']
 			if(curuser.first().u_varsity==None):
 				return redirect('websites:Homepage')
 			else:
@@ -141,7 +142,15 @@ def contactus(request):
     return render(request, 'websites/contactus.html')
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
-
+def myPage(request):
+	return render(request, 'websites/myPage.html')
+def changepass(request):
+	if request.POST['password']==request.POST['cpassword'] and request.POST['password'] != None:
+		user=user.objects.get(u_username=request.session['username'])
+		user.u_password=request.POST['password']
+		user.save()		
+	return redirect('websites:myPage')
+	
 def send_email(request):
 	vars=varsity.objects.get(v_num=request.session['vnum'])
 	if isinstance(request.POST['subject'], str) and request.POST['subject']!= '' and isinstance(request.POST['content'],str)and request.POST['content']!='' and vars.v_email != None:
