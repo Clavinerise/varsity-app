@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSS Related -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="aboutus.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'websites/aboutus.css' %}">
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -69,11 +69,11 @@
       <!-- Images for Team -->
       <div class="row">
         <div class="footer col text-center">
-          <img src="wes.png" class="img-fluid right" alt="responsive image wes">
-          <img src="ej.png" class="img-fluid right" alt="responsive image ej">
-          <img src="jeff.png" class="img-fluid right" alt="responsive image jeff">
-          <img src="jas.png" class="img-fluid right" alt="responsive image jas">
-          <img src="sir.png" class="img-fluid right" alt="responsive image sir">
+          <img src="{% static 'websites/wes.png' %}" class="img-fluid right" alt="responsive image wes">
+          <img src="{% static 'websites/ej.png' %}" class="img-fluid right" alt="responsive image ej">
+          <img src="{% static 'websites/jeff.png' %}" class="img-fluid right" alt="responsive image jeff">
+          <img src="{% static 'websites/jas.png' %}" class="img-fluid right" alt="responsive image jas">
+          <img src="{% static 'websites/sir.png' %}" class="img-fluid right" alt="responsive image sir">
         </div>
       </div>
       <!-- Text for Team -->
