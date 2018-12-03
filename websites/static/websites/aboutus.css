@@ -22,6 +22,8 @@ html {
 	background-size: cover;
 	height: 100%;
 	overflow: hidden;
+	font-family: 'Raleway';
+	font-weight: bolder;
 }
 
 body {
@@ -42,6 +44,7 @@ body {
 	font-family: 'Raleway', sans-serif !important;
 	font-size: 1.5vw;
 	color: white;
+	font-weight: bolder;
 }
 
 .footer {
