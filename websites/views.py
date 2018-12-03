@@ -28,8 +28,9 @@ def	eventcount():
 
 def Homepage(request):
 	if(request.session.modified == True and request.session['username'] != None):
+		dars=varsity.objects.all()
 		vars=request.session['vnum']
-		context = {'vnum': vars}
+		context = {'vnum': vars,'username':request.session['username'],'vars':dars}
 	return render(request,'websites/homescreen.html')
 	
 def loginattempt (request):
@@ -52,7 +53,7 @@ def login (request):
 		return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
 		
 def editpage(request):
-	return render(request,'websites/editpage.html')
+	return render(request,'websites/editVarsityInfo.html')
 	
 def edit(request):
 	vars=varsity.objects.get(v_num=request.session['vnum'])
@@ -103,7 +104,7 @@ def insertmember(request):
 	return redirect('websites:Homepage')
 	
 def newmember(request):
-	return render(request,'websites/newmember.html')
+	return render(request,'websites/insertMembers.html')
 	
 def customize(request):
 	return render(request,'websites/customize.html')

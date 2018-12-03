@@ -79,19 +79,20 @@
 			<!-- Header -->
 			<h1 id="head" class="display-4" align="center">Edit your varsity's information.</h1>
 
-
+<form action="{% url 'websites:edit' %}" method="post">
+				{% csrf_token %}
 			<!--Varsity Name input bar -->
 			<!--Copy paste these if you want to add more input bars, just edit the placeholder and aria-label-->
 			<div class="input-group input-group-lg mb-3">
 			  	<div class="col-5 col-centered">
-					<input type="text" class="form-control" placeholder="Varsity Name" aria-label="Varsity Name" aria-describedby="basic-addon1">
+					<input type="text" name="name" class="form-control" placeholder="Varsity Name" aria-label="Varsity Name" aria-describedby="basic-addon1">
 				</div>
 			</div>
 
 			<!--Email Address input bar -->
 			<div class="input-group input-group-lg mb-3">
 			  	<div class="col-5 col-centered">
-					<input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+					<input type="text"  name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
 				</div>
 			</div>
 
@@ -99,19 +100,19 @@
 			<!--Contact Info input bar -->
 			<div class="input-group input-group-lg mb-3">
 			  	<div class="col-5 col-centered">
-					<input type="text" class="form-control" placeholder="Contact Information" aria-label="Contact Information" aria-describedby="basic-addon1">
+					<input type="text" name="contact" class="form-control" placeholder="Contact Information" aria-label="Contact Information" aria-describedby="basic-addon1">
 				</div>
 			</div>
-
 
 
 			<!--Submit Button-->
 			<!--Copy paste this for adding more buttons-->
 			<div class="col-5 col-centered">
-				<button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+				<button type="submit" name="action" value="edit" class="btn btn-primary btn-lg btn-block">Submit</button>
 			</div>
 
 
+</form>
 		</div>
 
 
