@@ -143,14 +143,15 @@ def contactus(request):
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
 def myPage(request):
-	if(request.session.modified == True and request.session['username'] != None):
-		user=user.objects.get(u_username=request.session['username'])
-		return render(request, 'websites/myPage.html')
+	#if(request.session.modified == True and request.session['username'] != None):
+	users=user.objects.get(u_username=request.session['username'])
+	context = {'user': users}
+	return render(request, 'websites/myPage.html', context)
 def changepass(request):
 	if request.POST['password']==request.POST['cpassword'] and request.POST['password'] != None:
-		user=user.objects.get(u_username=request.session['username'])
-		user.u_password=request.POST['password']
-		user.save()		
+		users=user.objects.get(u_username=request.session['username'])
+		users.u_password=request.POST['password']
+		users.save()		
 	return redirect('websites:myPage')
 	
 def send_email(request):

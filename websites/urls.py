@@ -39,6 +39,7 @@ urlpatterns = [
 	path('aboutus/', views.aboutus, name='aboutus'),
     path('contactus/', views.contactus, name='contactus'),
 	path('myPage/', views.myPage, name='myPage'),
+	path('myPage/#', views.changepass, name='changepass'),
 ]
 
 #urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
