@@ -107,7 +107,7 @@ def newmember(request):
 	return render(request,'websites/insertMembers.html')
 	
 def customize(request):
-	return render(request,'websites/customize.html')
+	return render(request,'websites/managerPage.html')
 
 def signup(request):
 	return render(request,'websites/signup.html')
