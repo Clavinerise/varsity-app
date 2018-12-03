@@ -31,7 +31,8 @@ body {
 }
 
 .header {
-  font-family: 'Raleway Black', sans-serif !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-weight: bolder;
 	font-size: 5.9vw;
 	color: white;
 	padding-top: 20%;
