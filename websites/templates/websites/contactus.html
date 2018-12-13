@@ -34,24 +34,38 @@
                     </form>
 
                     <ul class="nav navbar-nav">
-                        <a class="nav-link text-white" href="{% url 'websites:Homepage' %}">Home</a>
-                        <a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar</a>
-                        <a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" d="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!--			{% for i in dars %}
-                            <a class="dropdown-item" href="#">{{i.v_name}}</a>
-                            {% endfor %}  -->
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'websites:directory' %}">See More</a>
-                        </div>
-                        {%for item in vnum %}
-                            <div >
-                                <a href="{% url 'websites:adddate' %}" >adddate</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'websites:Homepage' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Directory
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for i in dars %}
+                                    <a class="dropdown-item" href="#">{{i.v_name}}</a>
+                                {% endfor %} 
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'websites:directory' %}">See More</a>
                             </div>
-                        {% endfor %}
-                        <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us</a>
-                        <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us</a>
-                        <a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page</a>
+                            {%for item in vnum %}
+                                <div >
+                                    <a href="{% url 'websites:adddate' %}" >adddate</a>
+                                </div>
+                            {% endfor %}
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page</a>
+                        </li>
                         <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
                     </ul>
                 </div>
