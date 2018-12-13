@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Black.ttf");
+  font-weight: bolder;
+}
+
+html {
+	background: url("images/varsity.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	background-color: transparent;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.header {
+	padding-top: 20%;
+	font-family: 'Raleway Black';
+	font-size: 6vw;
+	color: white;
+}
+
+.subheader {
+	font-family: 'Raleway Regular', sans-sans-serif !important;
+	font-size: 2vw;
+	color: white;
+}
+
+.subheader2 {
+	font-family: 'Raleway Regular', sans-sans-serif !important;
+	font-size: 1.3vw;
+	color: white;
+}
+
+.subheader4{
+  font-family: 'Raleway Regular', sans-sans-serif !important;
+  font-size: 1.7vw;
+  color: white;
+}
+
+.theader {
+	font-family: 'Raleway Black';
+	font-size: 3.1vw;
+	color: white;
+}
+
+.sclass {
+	font-size: 0.8vw !important;
+}
+
+.ttext {
+	font-family: 'Raleway';
+	font-size: 1vw;
+	color: black;
+}
+
+.btt {
+  justify-content: center !important;
+  margin-bottom: 1%;
+}
+
+.pagination {
+  justify-content: center !important;
+}
+
+#appSummary{
+    justify-content:center;
+}
