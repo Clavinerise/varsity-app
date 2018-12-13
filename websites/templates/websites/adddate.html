@@ -20,24 +20,24 @@
 				<div >
 					<a >Contact Us</a>
 				</div>
-				
+
 				<form action="{% url 'websites:insertdate' %}" method="post">
 				{% csrf_token %}
 				<div class="input-field">
 		            <span >Date</span>
 		            <input name="date" type="text">
-		        </div> 
+		        </div>
 				<div class="input-field">
 		            <span >Start</span>
 		            <input  name="start" type="text">
-		        </div> 
+		        </div>
 				<div class="input-field">
 		            <span >End</span>
 		            <input  name="end" type="text">
-		        </div> 
+		        </div>
 				<button c type="submit" name="action" value="login">Submit</button>
 				</form>
-				
-				
+
+
 </body>
 </html>

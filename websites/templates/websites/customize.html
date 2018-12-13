@@ -20,7 +20,7 @@
 				<div >
 					<a >Contact Us</a>
 				</div>
-				
+
 				<form action="{% url 'websites:editpage' %}" method="post">
 				{% csrf_token %}
 				<button c type="submit" name="action" value="editpage">Edit Varsity Info</button>
@@ -38,15 +38,15 @@
 					<div class="input-field" >
 						<span >Topic</span>
 						<input name="subject"type="text">
-					</div> 
+					</div>
 					<div class="input-field">
 						<span >Content</span>
 						<input  name="content"  type="text">
-					</div> 
-					<button c type="submit" name="action" value="email">Send Email to 
+					</div>
+					<button c type="submit" name="action" value="email">Send Email to
 					Subscribers</button>
 				</form>
-				
-				
+
+
 </body>
 </html>
