@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Black.ttf");
+  font-weight: bolder;
+}
+
+#body {
+  background: url("images/subscribe.png") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  font-family: 'Raleway', sans-serif;
+}
+
+#line{
+	border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: white; /* old IE */
+    background-color: white; /* Modern Browsers */
+}
+
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
+
+.header {
+  font-family: 'Raleway Black', sans-serif !important;
+  font-size: 5.4vw;
+  color: white;
+  padding-top: 10%;
+}
+
+.subheader {
+  font-family: 'Raleway Regular', sans-serif !important;
+  font-size: 1.9vw;
+  color: white;
+}
+
+#eventsListmainheader{
+  padding-top:150px;
+  padding-bottom:30px;
+  color:white;
+}
+
+#tables{
+  color:white;
+  font-size: 20px;
+}
