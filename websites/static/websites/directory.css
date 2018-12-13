@@ -6,7 +6,7 @@
 @font-face {
   font-family: 'Raleway';
   src: url("/static/Raleway/Raleway-Black.ttf");
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 html {
@@ -21,18 +21,22 @@ body {
 	background-color: transparent;
 	overflow: hidden;
 	overflow-y: scroll;
+	font-family: 'Raleway';
+	font-weight: 900;
 }
 
 .header {
 	padding-top: 12%;
 	margin-bottom: -2.5%;
-	font-family: 'Raleway Black';
+	font-family: 'Raleway';
+	font-weight: 900;
 	font-size: 7.1vw;
 	color: white;
 }
 
 .subheader {
 	font-family: 'Raleway';
+	font-weight: 900;
 	font-size: 1.8vw;
 	color: white;
 }
@@ -42,13 +46,15 @@ body {
 }
 
 .theader {
-	font-family: 'Raleway Black';
+	font-family: 'Raleway';
+	font-weight: 900;
 	font-size: 1.7vw;
 	color: white;
 }
 
 .ttext {
 	font-family: 'Raleway';
+	font-weight: 900;
 	font-size: 1.1vw;
 	color: white;
 }
