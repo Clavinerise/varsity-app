@@ -169,3 +169,8 @@ def send_email(request):
         # In reality we'd use a form class
         # to get proper validation errors.
 		return redirect('websites:Homepage')
+def varsitee(request, vnum):
+	request.session['varsityseen']=vnum
+	vars=varsity.objects.get(v_num=vnum)
+	context = {'vars': vars}
+	return render (request,'websites/varsity.html',context)

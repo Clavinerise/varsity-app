@@ -84,7 +84,7 @@
         <tbody class="ttext">
 		  {% for item in varsities %}
           <tr>
-            <th scope="row">{{item.v_name}} </th>
+            <th scope="row" ><a href="{% url 'websites:varsitee' item.v_num %}">{{item.v_name}} </a></th>
             <td>{{item.v_email}}</td>
             <td>{{item.v_contact}}</td>
 			 {% for member in members %}
