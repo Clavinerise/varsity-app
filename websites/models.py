@@ -4,14 +4,7 @@ from django.db import connection, models
 from django.utils import timezone
 
 # Create your models here.
-class user(models.Model):
-	u_username=models.CharField(max_length=255,primary_key=True)
-	u_password=models.CharField(max_length=255)
-	u_varsity=models.IntegerField(null=True)
-	u_varsitysubscriptions=models.IntegerField(null=True)
-	def __int__(self):
-		return u_username
-	
+
 class varsity(models.Model):
 	v_num=models.IntegerField(primary_key=True)
 	v_name=models.CharField(max_length=255)
@@ -20,6 +13,14 @@ class varsity(models.Model):
 	v_file=models.FileField(blank=True, null=True, upload_to="files/%v_num")
 	def __int__(self):
 		return v_num
+		
+class user(models.Model):
+	u_username=models.CharField(max_length=255,primary_key=True)
+	u_password=models.CharField(max_length=255)
+	u_varsity=models.IntegerField(null=True)
+	u_varsitysubscriptions=models.ManyToManyField(varsity)
+	def __int__(self):
+		return u_username
 	
 class member(models.Model):
 	m_team=models.ForeignKey(varsity, on_delete = models.CASCADE, related_name='members')

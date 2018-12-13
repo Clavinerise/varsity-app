@@ -13,6 +13,9 @@ from django.db.models.query import EmptyQuerySet
 from django.template.loader import render_to_string
 from .models import user, member, varsity, eventlol
 from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.db import models
 
 def usercount():
     no = user.objects.count()
@@ -27,11 +30,10 @@ def	eventcount():
 	return no+1
 
 def Homepage(request):
-	if(request.session.modified == True and request.session['username'] != None):
-		dars=varsity.objects.all()
-		vars=request.session['vnum']
-		context = {'vnum': vars,'username':request.session['username'],'vars':dars}
-	return render(request,'websites/homescreen.html')
+	vars=request.session['vnum']
+	context = {'vnum': vars,'username':request.session['username']}
+	print(request.session['username'])
+	return render(request,'websites/homescreen.html',context)
 	
 def loginattempt (request):
 	return render(request, 'websites/login.html')
@@ -39,7 +41,6 @@ def loginattempt (request):
 def login (request):
 	if (isinstance(request.POST['username'], str) and request.POST['username']!= '' and isinstance(request.POST['password'],str)and request.POST['password']!=''):
 		curuser=user.objects.filter(u_username=request.POST['username']).filter(u_password=request.POST['password'])
-		print(user.objects.none() )
 		if (  len(curuser)==0 ):
 			return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
 		else:
@@ -51,9 +52,13 @@ def login (request):
 				return  redirect('websites:customize')
 	else:
 		return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
-		
+def logout (request):
+	request.session['username']=''
+	return redirect('websites:Homepage')
+	
 def editpage(request):
-	return render(request,'websites/editVarsityInfo.html')
+	context = {'username':request.session['username']}
+	return render(request,'websites/editVarsityInfo.html',context)
 	
 def edit(request):
 	vars=varsity.objects.get(v_num=request.session['vnum'])
@@ -72,12 +77,12 @@ def directory (request):
 		if isinstance(request.POST['varsityname'],str) and request.POST['varsityname']!='':
 			varsities=varsities.filter(v_name__icontains=request.POST['varsityname'])
 	members=member.objects.all()
-	context = {'varsities': varsities,'members': members}
+	context = {'varsities': varsities,'members': members,'username':request.session['username']}
 	return render(request, 'websites/directory.html', context)
 
 def events (request):
 	dates = eventlol.objects.all()
-	context = {'dates': dates}
+	context = {'dates': dates,'username':request.session['username']}
 	return render(request, 'websites/eventsList.html', context)
 
 def adddate(request):
@@ -137,16 +142,21 @@ def email(request):
 	return redirect('websites:Homepage')
 '''
 def aboutus(request):
-    return render(request, 'websites/aboutus.html')
+	context={'username':request.session['username']}
+	return render(request,'websites/aboutus.html', context)
 
 def contactus(request):
-    return render(request, 'websites/contactus.html')
+	context={'username':request.session['username']}
+	return render(request, 'websites/contactus.html',context)
 #from datetime import datetime
 #datetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')
 def myPage(request):
 	#if(request.session.modified == True and request.session['username'] != None):
 	users=user.objects.get(u_username=request.session['username'])
-	context = {'user': users}
+	
+	xd=users.u_varsitysubscriptions.all()
+	print(xd)
+	context = {'user': users,'username':request.session['username'],'subs':xd}
 	return render(request, 'websites/myPage.html', context)
 def changepass(request):
 	if request.POST['password']==request.POST['cpassword'] and request.POST['password'] != None:
@@ -172,5 +182,22 @@ def send_email(request):
 def varsitee(request, vnum):
 	request.session['varsityseen']=vnum
 	vars=varsity.objects.get(v_num=vnum)
-	context = {'vars': vars}
+	context = {'vars': vars,'username':request.session['username']}
 	return render (request,'websites/varsity.html',context)
+def varsitee2(request, vnum):
+	request.session['varsityseen']=vnum
+	vars=varsity.objects.get(v_num=vnum)
+	context = {'vars': vars,'username':request.session['username']}
+	return render (request,'websites/varsity2.html',context)
+def varsitee3(request, vnum):
+	dates = eventlol.objects.filter(e_team=vnum)
+	request.session['varsityseen']=vnum
+	vars=varsity.objects.get(v_num=vnum)
+	context = {'vars': vars,'username':request.session['username'],'dates': dates}
+	return render (request,'websites/varsity3.html',context)
+def subscribe(request,vnum):
+	xd=user.objects.get(u_username=request.session['username'])
+	var=varsity.objects.get(v_num=vnum)
+	xd.u_varsitysubscriptions.add(vnum)
+	xd.save()
+	return redirect('websites:varsitee', vnum)

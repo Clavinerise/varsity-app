@@ -12,7 +12,7 @@
   </head>
   <body id="body">
     <!-- Navigation Bar -->
-    <div class="container h-100">
+     <div class="container h-100">
       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark d-flex">
       <!--Collapsing navbar-->
       <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,24 +34,30 @@
               </li>
               <!--Drop down part of the navbar-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#" id="navbar" role="button">Directory</a>
+                <a class="nav-link text-white" href="{% url 'websites:directory' %}" id="navbar" role="button">Directory</a>
               </li>
               <!--About Us-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us <span class="sr-only">(current)</span></a>
               </li>
               <!--Contact Us-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
               </li>
               <!--My Page-->
+			  {% if username != '' %}
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">My Page<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page<span class="sr-only">(current)</span></a>
               </li>
               <!--Logout Button-->
               <li class="nav-item active">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
+			  	<form action="{% url 'websites:logout' %}" method="post">
+				{% csrf_token %}
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
+				</form>
               </li>
+			  
+			  {% endif %}
           </ul>
         </div>
       </nav>
@@ -71,18 +77,22 @@
         </div>
       </div>
       <!-- Subscribe Button -->
+	  {% if username != '' %}
       <div class="input-group input-group-lg mb-3 row justify-content-center align-self-center" style="padding-top:5%;">
           <div class="col-5 col-centered">
+		  <form action="{% url 'websites:subscribe'  vars.v_num %}" method="post">
+		  {% csrf_token %}
           <button type="submit" name="action" class="btn btn-block btn-primary btn-lg"> Subscribe</button>
         </div>
       </div>
+	  {% endif %}
       <!-- Pagination -->
       <div class="text-center" style="padding-top:5%;">
         <nav aria-label="Page navigation example">
           <ul class="pagination pagination-sml justify-content-center">
-            <li class="page-item active"><a class="page-link" href="varsity.html">1</a></li>
-            <li class="page-item"><a class="page-link" href="varsity2.html">2</a></li>
-            <li class="page-item"><a class="page-link" href="varsity3.html">3</a></li>
+            <li class="page-item active"><a class="page-link" href="{% url 'websites:varsitee' vars.v_num %}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'websites:varsitee2' vars.v_num %}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'websites:varsitee3' vars.v_num  %}">3</a></li>
           </ul>
         </nav>
       </div>
