@@ -1,28 +1,86 @@
-{% extends 'websites/base.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<title>{% block title %}{% endblock%}</title>
+		 <!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'websites/homescreen.css' %}">
+		<!-- CSS Bootstrap  -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+	<body id="body">
+		<!--Background Image-->
+		<body background="images/home-screen-bg.png" id="bg">
 
-{% block nav_home %}<a class="nav-link text-white">Home</a>{% endblock %}
+		<hr id="line" size="30">
+		<!--Navigation bar-->
+		<div class="d-flex justify-content-end">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent d-flex">
 
-{% block content %}
-        
-		<div class="container" id="section">
-			<div class="row align-self-center">
-				<div class="col align-self-center">
-					<!-- Main Header -->
-					<h1 id="mainheader" class="display-1 text-lg-center" align="center">Welcome.</h1>
+                <!--Collapsing navbar-->
+                <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-					<!-- Sub Header -->
-					<h2 id="subheader" align="center">Start your varsity journey today.</h2>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-					<!--Get Started Button-->
-					<form action="{% url 'websites:loginattempt' %}" method="post">
-						{% csrf_token %}
-						<div class="col-5 col-centered" >
-							<button class="btn btn-outline-light btn-lg btn-block"  type =  "submit">Get Started</button>
-						</div>
-					</form>
+                    <!-- Search bar -->
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary-light my-2 my-sm-0" type="submit" >Search</button>
+                    </form>
+
+                    <ul class="nav navbar-nav">
+                        <a class="nav-link text-white" href="{% url 'websites:Homepage' %}">Home</a>
+                        <a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar</a>
+                        <a class="nav-link dropdown-toggle text-white" href="{% url 'websites:directory' %}" d="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!--			{% for i in dars %}
+                            <a class="dropdown-item" href="#">{{i.v_name}}</a>
+                            {% endfor %}  -->
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'websites:directory' %}">See More</a>
+                        </div>
+                        {%for item in vnum %}
+                            <div >
+                                <a href="{% url 'websites:adddate' %}" >adddate</a>
+                            </div>
+                        {% endfor %}
+                        <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us</a>
+                        <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us</a>
+                        <a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page</a>
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container" id="section">
+				<div class="row align-self-center">
+					<div class="col align-self-center">
+						<!-- Main Header -->
+						<h1 id="mainheader" class="display-1 text-lg-center" align="center">Welcome.</h1>
+	
+						<!-- Sub Header -->
+						<h2 id="subheader" align="center">Start your varsity journey today.</h2>
+	
+						<!--Get Started Button-->
+						<form action="{% url 'websites:loginattempt' %}" method="post">
+							{% csrf_token %}
+							<div class="col-5 col-centered" >
+								<button class="btn btn-outline-light btn-lg btn-block"  type =  "submit">Get Started</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-	
 
-{% endblock %}
+	<!--Bootstrap Scripts -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	</body>
+</html>
