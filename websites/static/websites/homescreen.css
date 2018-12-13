@@ -1,25 +1,21 @@
 @font-face {
-    font-family: 'Raleway';
-    src: url("/static/Raleway/Raleway-Black.ttf");
-  }
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("/static/Raleway/Raleway-Black.ttf");
+  font-weight: bolder;
+}
 
 #body {
-    background: url("images/home-screen-bg.png") no-repeat center center fixed;
+  background: url("images/home-screen-bg.png") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   width: 100vw;
   overflow: hidden;
   color:white;
-
-  font-family: Raleway;
-}
-
-#line{
-	border: none;
-    height: 3px;
-    /* Set the hr color */
-    color: white; /* old IE */
-    background-color: white; /* Modern Browsers */
 }
 
 .col-centered{
@@ -27,14 +23,19 @@
     float: none;
 }
 
-#mainheader{
-    color:white;
-    align-content:center;
+.header {
+  font-family: 'Raleway Black', sans-serif !important;
+  color: white;
+  font-size: 8.5vw;
+  margin-top: -7.5%;
 }
 
-#subheader{
-    color:white;
-    padding-bottom: 15pt;
+.subheader{
+  font-family: 'Raleway Regular', sans-serif !important;
+  color: white;
+  font-size: 1.8vw;
+  margin-top: -6.5%;
+  margin-bottom: 5%;
 }
 
 #section {
