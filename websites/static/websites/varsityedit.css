@@ -24,21 +24,20 @@ body {
 }
 
 .header {
-	padding-top: 13%;
-	margin-bottom: -2.5%;
-	font-family: 'Raleway Black', sans-serif;
-	font-size: 7.1vw;
+	padding-top: 10%;
+	font-family: 'Raleway Black';
+	font-size: 4.5vw;
 	color: white;
 }
 
 .subheader {
-	font-family: 'Raleway', sans-sans-serif;
-	font-size: 1.8vw;
+	font-family: 'Raleway Regular', sans-sans-serif !important;
+	font-size: 2.8vw;
 	color: white;
 }
 
 .theader {
-	font-family: 'Raleway Black', sans-serif;
+	font-family: 'Raleway Black';
 	font-size: 3.1vw;
 	color: white;
 }
@@ -48,9 +47,18 @@ body {
 }
 
 .ttext {
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway';
 	font-size: 1vw;
 	color: black;
+}
+
+.btt {
+  justify-content: center !important;
+  margin-bottom: 1%;
+}
+
+.pagination {
+  justify-content: center !important;
 }
 
 #appSummary{

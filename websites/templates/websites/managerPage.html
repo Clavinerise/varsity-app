@@ -1,152 +1,139 @@
 <!DOCTYPE html>
-{%load static%}
+{% load static %}
 <html lang="en">
-	<head>
-		<title>My Page</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'websites/managerPage.css' %}">
-		 <!-- Required meta tags -->
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    	<!-- Font Style Raleway Black -->
-    	<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
-
-		<!-- CSS Bootstrap  -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	</head>
-	<body id="body">
-		<!--Background Image-->
-		<body background="images/home-screen-bg.png">
-
-		<!--Line above Navbar-->
-		<hr id="line" size="30">
-		<!--Navigation bar-->
-		
-		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark d-flex">
-			<!--Collapsing navbar-->
-			<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    			<span class="navbar-toggler-icon"></span>
-  			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<!--Search bar and button-->
-				<form class="form-inline my-2 my-lg-0">
-			      		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			      		<button class="btn btn-secondary-light my-2 my-sm-0" type="submit" >Search</button>
-			    </form>
-		  		
-		  		<!--Navbar stuff-->
-		    	<ul class="navbar-nav ml-auto">
-		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#" >Home<span class="sr-only">(current)</span></a>
-		      		</li>
-		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">Calendar<span class="sr-only">(current)</span></a>
-		      		</li>
-		      		
-
-		      		<!--Drop down part of the navbar-->
-		      		<li class="nav-item dropdown">
-		       			<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
-		        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		         			<a class="dropdown-item" href="#">Action</a>
-		          			<a class="dropdown-item" href="#">Another action</a>
-		          			<div class="dropdown-divider"></div>
-		          			<a class="dropdown-item" href="#">Something else here</a>
-		        		</div>
-		      		</li>
-		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
-		      		</li>
-		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
-		      		</li>
-		      		<li class="nav-item active">
-		        		<a class="nav-link text-white" href="#">My Page<span class="sr-only">(current)</span></a>
-		      		</li>
-		      		<li class="nav-item active">
-		        		<button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
-		      		</li>
-		    	</ul>	
-		  	</div>
-		</nav>
-		
-
-
-		<div class="container">
-
-			<!-- Main Header -->
-			<h1 id="managerPagemainheader" class="display-1" align="center">Manager Page</h1>
-<form action="{% url 'websites:editpage' %}" method="post">
-				{% csrf_token %}
-			<div class="input-group input-group-lg mb-3">
-		  		<div class="col-5 col-centered">
-					<button type="submit" name="action" class="btn btn-block btn-primary btn-lg"> Edit Varsity Info</button>
-				</div>
-			</div>
-</form>
-<form action="{% url 'websites:newmember' %}" method="post">
-				{% csrf_token %}
-			<div class="input-group input-group-lg mb-3">
-		  		<div class="col-5 col-centered">
-					<button type="submit" name="action" class="btn btn-block btn-primary btn-lg"> Add Members</button>
-				</div>
-			</div>
-</form>
-
-<form action="{% url 'websites:adddate' %}" method="post">
-				{% csrf_token %}
-			<div class="input-group input-group-lg mb-3">
-		  		<div class="col-5 col-centered">
-					<button type="submit" name="action" class="btn btn-block btn-primary btn-lg"> Add Event</button>
-				</div>
-			</div>
-</form>
-<form action="{% url 'websites:send_email' %}" method="post">
-					{% csrf_token %}
-			<div class="input-group input-group-lg mb-3">
-		  		<div class="col-5 col-centered" >
-					<input type="text" class="form-control" name="subject" placeholder="Topic" aria-label="Topic" aria-describedby="basic-addon1">
-				</div>
-			</div>
-			
-			
-			<div class="input-group input-group-lg mb-3">
-		  		<div class="form-group col-5 col-centered" id="formbox">
-    				<label name="content" for="exampleFormControlTextarea1">Content</label>
-    				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  				</div>
-			</div>
-			<div class="input-group input-group-lg mb-3">
-		  		<div class="col-5 col-centered">
-					<button type="submit" name="action" value="email" class="btn btn-block btn-primary btn-lg"> Send Email</button>
-				</div>
-
-			</div>
-
-	</form>
-
-			
-			
-
-			
-			
-			
-
-
-			
-			
-
-
-		</div>
-
-
-
-
-
-
-		<!--Bootstrap Scripts -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <head>
+    <!-- Required meta tags -->
+    <title>My Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS Related -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="varsityedit.css">
+  </head>
+  <script>
+    function editField() {
+      var el = document.getElementById('txt');
+      el.onclick = function(){
+        this.removeAttribute('readonly');
+      };
+      document.getElementById("sendbutton").style.visibility = "visible";
+    }
+    function sendField() {
+      var el = document.getElementById('txt');
+      el.onclick = function(){
+        this.setAttribute('readonly');
+      };
+      document.getElementById("sendbutton").style.visibility = "hidden";
+    }
+  </script>
+  <body id="body">
+      <!-- Navigation Bar -->
+      <div class="container h-100">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark d-flex">
+        <!--Collapsing navbar-->
+        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!--Search bar and button-->
+          <form class="form-inline my-2 my-lg-0 ">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-secondary-light my-2 my-sm-0" type="submit" >Search</button>
+            </form>
+            <!--Navbar stuff-->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'websites:Homepage' %}" >Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="{% url 'websites:events' %}">Calendar<span class="sr-only">(current)</span></a>
+                </li>
+                <!--Drop down part of the navbar-->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Directory</a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                <!--About Us-->
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                <!--Contact Us-->
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
+                </li>
+                <!--My Page-->
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="#">My Page<span class="sr-only">(current)</span></a>
+                </li>
+                <!--Logout Button-->
+                <li class="nav-item active">
+                  <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
+                </li>
+            </ul>
+          </div>
+      </nav>
+      </div>
+      <!-- Container which contains the HTML/CSS for Text -->
+      <div class="container h-100 text-center">
+        <div class="header">
+          <p> Manage Team </p>
+        </div>
+      </div>
+    <!-- Container which contains the HTML/CSS -->
+    <div class="container h-100">
+      <div class="row">
+        <div class="col text-center">
+          <p class="subheader"> Varsity Info <sub class="sclass" style="color:#ff6961;" onclick="editField()"> edit </sub> </p>
+        </div>
+      </div>
+      <!-- Textarea of Varsity Description which is read-only -->
+      <div class="form-group">
+        <div class="text-center">
+          <!-- put the data from the db here -->
+          <textarea class="form-control ttext" rows="10" id="txt" readonly="readonly">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac lorem vel mi dictum iaculis. Cras tincidunt, justo sit amet cursus fringilla, elit lacus finibus lacus, eget ultrices sapien nisi quis lorem. Etiam semper tincidunt egestas.
+Etiam molestie dolor eu sodales tristique. Nullam sed nisi ut enim pharetra condimentum id sed leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque tellus non ultricies efficitur.
+Curabitur euismod, nunc in viverra scelerisque, ante diam convallis nulla, ac viverra augue tortor in ligula. Nullam vitae lectus nec dolor vehicula rhoncus. Proin ut quam ultricies, feugiat diam vitae, facilisis libero. Cras scelerisque.
+          </textarea>
+        </div>
+      </div>
+      <!-- Button when you submit new data -->
+      <div class="col text-center btt">
+        <button type="submit" name="action" class="btn btn-block btn-primary btn-lg" id="sendbutton" style="visibility:hidden;" onclick="sendField();" data-toggle="modal" data-target="#exampleModalCenter">Send</button>
+      </div>
+      <!-- Pagination -->
+      <div class="text-center">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-lg justify-content-center">
+            <li class="page-item active"><a class="page-link" href="managerpage.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="managerpage2.html">2</a></li>
+          </ul>
+        </nav>
+    </div>
+    <!-- Popup -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Varsity Information</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Succesfully updated!
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Javascript related for Bootstrap 4 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	</body>
+  </body>
 </html>
