@@ -16,6 +16,7 @@
   width: 100vw;
   overflow: hidden;
   color:white;
+  font-family: 'Raleway', sans-serif !important; 
 }
 
 .col-centered{

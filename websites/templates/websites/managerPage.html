@@ -9,6 +9,7 @@
     <!-- CSS Related -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'websites/varsityedit.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
   </head>
   <script>
     function editField() {
@@ -35,11 +36,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!--Search bar and button-->
-        <form class="form-inline my-2 my-lg-0 ">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-secondary-light my-2 my-sm-0" type="submit" >Search</button>
-          </form>
           <!--Navbar stuff-->
           <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
@@ -99,8 +95,7 @@
       <div class="form-group">
         <div class="text-center">
           <!-- put the data from the db here -->
-          <textarea class="form-control ttext" rows="10" id="txt" name = "description" readonly="readonly">
-		{{vars.v_desc}}
+          <textarea class="form-control ttext text-left" rows="10" id="txt" name = "description" readonly="readonly">{{vars.v_desc}}
           </textarea>
         </div>
       </div>

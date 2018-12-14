@@ -163,11 +163,12 @@ def contactus(request):
 def myPage(request):
 	#if(request.session.modified == True and request.session['username'] != None):
 	users=user.objects.get(u_username=request.session['username'])
-	membership=varsity.objects.get(v_num=users.u_varsity)
-	
+	membership=varsity.objects.filter(v_num=users.u_varsity)
 	xd=users.u_varsitysubscriptions.all()
-	print(xd)
-	context = {'user': users,'username':request.session['username'],'subs':xd,'member':membership.v_name}
+	if(len(membership)==0):
+		context = {'user': users,'username':request.session['username'],'subs':xd}
+	else:
+		context = {'user': users,'username':request.session['username'],'subs':xd,'member':membership.first().v_name}
 	return render(request, 'websites/myPage.html', context)
 def changepass(request):
 	if request.POST['password']==request.POST['cpassword'] and request.POST['password'] != None:
