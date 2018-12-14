@@ -54,6 +54,7 @@ def login (request):
 		return render(request,'websites/login.html', {'error_message': "Invalid Credentials."})
 def logout (request):
 	request.session['username']=''
+	request.session['vnum']=''
 	return redirect('websites:Homepage')
 	
 def editpage(request):
@@ -84,6 +85,12 @@ def events (request):
 	dates = eventlol.objects.all()
 	context = {'dates': dates,'username':request.session['username']}
 	return render(request, 'websites/eventsList.html', context)
+	
+def descedit (request):
+	vars=varsity.objects.get(v_num=request.session['vnum'])
+	vars.v_desc=request.POST['description']
+	vars.save()
+	return redirect('websites:customize')
 
 def adddate(request):
 	return render(request,'websites/adddate.html')
@@ -95,9 +102,10 @@ def insertdate(request):
 	e_date=request.POST['date'],
 	e_start=request.POST['start'],
 	e_end=request.POST['end'],
+	e_desc=request.POST['desc'],
 	)
 	new.save()
-	return redirect('websites:Homepage')
+	return redirect('websites:edit2')
 	
 def insertmember(request):
 	new= member(
@@ -106,13 +114,15 @@ def insertmember(request):
 		m_role=request.POST['role'],
 	)
 	new.save()
-	return redirect('websites:Homepage')
+	return redirect('websites:edit2')
 	
 def newmember(request):
 	return render(request,'websites/insertMembers.html')
 	
 def customize(request):
-	return render(request,'websites/managerPage.html')
+	vars=varsity.objects.get(v_num=request.session['vnum'])
+	context = {'vars': vars,'username':request.session['username']}
+	return render(request,'websites/managerPage.html',context)
 
 def signup(request):
 	return render(request,'websites/signup.html')
@@ -153,10 +163,11 @@ def contactus(request):
 def myPage(request):
 	#if(request.session.modified == True and request.session['username'] != None):
 	users=user.objects.get(u_username=request.session['username'])
+	membership=varsity.objects.get(v_num=users.u_varsity)
 	
 	xd=users.u_varsitysubscriptions.all()
 	print(xd)
-	context = {'user': users,'username':request.session['username'],'subs':xd}
+	context = {'user': users,'username':request.session['username'],'subs':xd,'member':membership.v_name}
 	return render(request, 'websites/myPage.html', context)
 def changepass(request):
 	if request.POST['password']==request.POST['cpassword'] and request.POST['password'] != None:
@@ -179,25 +190,45 @@ def send_email(request):
         # In reality we'd use a form class
         # to get proper validation errors.
 		return redirect('websites:Homepage')
+		
 def varsitee(request, vnum):
 	request.session['varsityseen']=vnum
 	vars=varsity.objects.get(v_num=vnum)
 	context = {'vars': vars,'username':request.session['username']}
 	return render (request,'websites/varsity.html',context)
+	
 def varsitee2(request, vnum):
 	request.session['varsityseen']=vnum
 	vars=varsity.objects.get(v_num=vnum)
 	context = {'vars': vars,'username':request.session['username']}
 	return render (request,'websites/varsity2.html',context)
+	
 def varsitee3(request, vnum):
 	dates = eventlol.objects.filter(e_team=vnum)
 	request.session['varsityseen']=vnum
 	vars=varsity.objects.get(v_num=vnum)
 	context = {'vars': vars,'username':request.session['username'],'dates': dates}
 	return render (request,'websites/varsity3.html',context)
+	
 def subscribe(request,vnum):
 	xd=user.objects.get(u_username=request.session['username'])
 	var=varsity.objects.get(v_num=vnum)
 	xd.u_varsitysubscriptions.add(vnum)
 	xd.save()
 	return redirect('websites:varsitee', vnum)
+	
+def edit2(request):
+	vars=varsity.objects.get(v_num=request.session['vnum'])
+	context = {'vars': vars,'username':request.session['username']}
+	return render(request,'websites/managerpage2.html',context)
+	
+def subscriptions(request):
+	users=user.objects.get(u_username=request.session['username'])
+	
+	list=[]
+	for i in users.u_varsitysubscriptions.all():
+		list+= eventlol.objects.filter(e_team=i)
+	print (list)
+	context={'username':request.session['username'],'dates':list,'subs':users.u_varsitysubscriptions.all()}
+	
+	return render(request,'websites/subscribe.html',context)

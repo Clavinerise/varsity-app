@@ -50,24 +50,30 @@
               </li>
               <!--Drop down part of the navbar-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#" id="navbar" role="button">Directory</a>
+                <a class="nav-link text-white" href="{% url 'websites:directory' %}" id="navbar" role="button">Directory</a>
               </li>
               <!--About Us-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us <span class="sr-only">(current)</span></a>
               </li>
               <!--Contact Us-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
               </li>
               <!--My Page-->
+			  {% if username != '' %}
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">My Page<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page<span class="sr-only">(current)</span></a>
               </li>
               <!--Logout Button-->
               <li class="nav-item active">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
+			  	<form action="{% url 'websites:logout' %}" method="post">
+				{% csrf_token %}
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
+				</form>
               </li>
+			  
+			  {% endif %}
           </ul>
         </div>
       </nav>
@@ -75,7 +81,7 @@
       <!-- Container which contains the HTML/CSS for Text -->
       <div class="container h-100 text-center">
         <div class="header">
-          <p> Manage Team </p>
+          <p> {{vars.v_name}} </p>
         </div>
       </div>
     <!-- Container which contains the HTML/CSS -->
@@ -86,26 +92,32 @@
         </div>
       </div>
       <!-- Textarea of Varsity Description which is read-only -->
+	  
+	  <form action="{% url 'websites:descedit' %}" method="post">
+				{% csrf_token %}
+	  
       <div class="form-group">
         <div class="text-center">
           <!-- put the data from the db here -->
-          <textarea class="form-control ttext" rows="10" id="txt" readonly="readonly">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac lorem vel mi dictum iaculis. Cras tincidunt, justo sit amet cursus fringilla, elit lacus finibus lacus, eget ultrices sapien nisi quis lorem. Etiam semper tincidunt egestas.
-Etiam molestie dolor eu sodales tristique. Nullam sed nisi ut enim pharetra condimentum id sed leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque tellus non ultricies efficitur.
-Curabitur euismod, nunc in viverra scelerisque, ante diam convallis nulla, ac viverra augue tortor in ligula. Nullam vitae lectus nec dolor vehicula rhoncus. Proin ut quam ultricies, feugiat diam vitae, facilisis libero. Cras scelerisque.
+          <textarea class="form-control ttext" rows="10" id="txt" name = "description" readonly="readonly">
+		{{vars.v_desc}}
           </textarea>
         </div>
       </div>
       <!-- Button when you submit new data -->
       <div class="col text-center btt">
-        <button type="submit" name="action" class="btn btn-block btn-primary btn-lg" id="sendbutton" style="visibility:hidden;" onclick="sendField();" data-toggle="modal" data-target="#exampleModalCenter">Send</button>
+        <button type="submit" name="action" class="btn btn-block btn-primary btn-lg" id="sendbutton" style="visibility:hidden;" onclick="sendField();" data-toggle="modal" data-target="#exampleModalCenter">Submit</button>
       </div>
+	  </form>
+	  
+	  
+	  
       <!-- Pagination -->
       <div class="text-center">
         <nav aria-label="Page navigation example">
           <ul class="pagination pagination-lg justify-content-center">
-            <li class="page-item active"><a class="page-link" href="managerpage.html">1</a></li>
-            <li class="page-item"><a class="page-link" href="managerpage2.html">2</a></li>
+            <li class="page-item active"><a class="page-link" href="{% url 'websites:customize'%}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'websites:edit2'%}">2</a></li>
           </ul>
         </nav>
     </div>

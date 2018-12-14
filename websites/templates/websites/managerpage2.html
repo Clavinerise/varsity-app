@@ -37,24 +37,30 @@
               </li>
               <!--Drop down part of the navbar-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#" id="navbar" role="button">Directory</a>
+                <a class="nav-link text-white" href="{% url 'websites:directory' %}" id="navbar" role="button">Directory</a>
               </li>
               <!--About Us-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">About Us <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:aboutus' %}">About Us <span class="sr-only">(current)</span></a>
               </li>
               <!--Contact Us-->
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">Contact Us<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:contactus' %}">Contact Us<span class="sr-only">(current)</span></a>
               </li>
               <!--My Page-->
+			  {% if username != '' %}
               <li class="nav-item active">
-                <a class="nav-link text-white" href="#">My Page<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'websites:myPage' %}">My Page<span class="sr-only">(current)</span></a>
               </li>
               <!--Logout Button-->
               <li class="nav-item active">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit" >Logout</button>
+			  	<form action="{% url 'websites:logout' %}" method="post">
+				{% csrf_token %}
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
+				</form>
               </li>
+			  
+			  {% endif %}
           </ul>
         </div>
       </nav>
@@ -63,10 +69,12 @@
 			<!-- Main Header -->
 			<div class="container h-100 text-center">
 				<div class="header">
-					<p>Manager Page</h1>
+					<p>{{vars.v_name}}</h1>
 				</div>
 			</div>
 			<!-- Add Members -->
+			<form action="{% url 'websites:insertmember' %}" method="post">
+				{% csrf_token %}
 			<!-- Add Member -->
 			<!-- Name -->
 			<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
@@ -81,8 +89,7 @@
 				</div>
 			</div>
 			<!-- Add Member Button -->
-			<form action="{% url 'websites:newmember' %}" method="post">
-				{% csrf_token %}
+		
 				<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
 			  		<div class="col-5 text-center">
 						<button type="submit" name="action" class="btn btn-block btn-primary btn-lg"> Add Members </button>
@@ -90,6 +97,8 @@
 				</div>
 			</form>
 			<!-- Add Event -->
+			<form action="{% url 'websites:insertdate' %}" method="post">
+				{% csrf_token %}
 			<!-- Date of Event -->
 			<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
 					<div class="col-5 col-centered input-group date">
@@ -99,24 +108,23 @@
 			<!-- Start Time -->
 			<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
 					<div class="col-5 col-centered" >
-					<input type="text" class="form-control" name="Start" placeholder="Starting Time" aria-label="Topic" aria-describedby="basic-addon1">
+					<input type="text" class="form-control" name="start" placeholder="Starting Time" aria-label="Topic" aria-describedby="basic-addon1">
 				</div>
 			</div>
 			<!-- End Time -->
 			<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
 					<div class="col-5 col-centered" >
-					<input type="text" class="form-control" name="End" placeholder="Ending Time" aria-label="Topic" aria-describedby="basic-addon1">
+					<input type="text" class="form-control" name="end" placeholder="Ending Time" aria-label="Topic" aria-describedby="basic-addon1">
 				</div>
 			</div>
 			<!-- Description -->
 			<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
 		  		<div class="form-group col-5 col-centered" id="formbox">
-    				<textarea class="form-control" id="content" rows="3" placeholder="Description"></textarea>
+    				<textarea class="form-control" name="desc" id="content" rows="3" placeholder="Description"></textarea>
   				</div>
 			</div>
 			<!-- Add Event Button -->
-			<form action="{% url 'websites:adddate' %}" method="post">
-				{% csrf_token %}
+
 				<div class="input-group input-group-lg mb-3 row justify-content-center align-self-center">
 			  		<div class="col-5 col-centered">
 						<button type="submit" name="action" class="btn btn-block btn-primary btn-lg"> Add Event</button>
@@ -127,8 +135,8 @@
 			<div class="text-center">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination pagination-lg justify-content-center">
-						<li class="page-item"><a class="page-link" href="managerpage.html">1</a></li>
-						<li class="page-item active"><a class="page-link" href="managerpage2.html">2</a></li>
+     <li class="page-item active"><a class="page-link" href="{% url 'websites:customize'%}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'websites:edit2'%}">2</a></li>
 					</ul>
 				</nav>
 			</div>
